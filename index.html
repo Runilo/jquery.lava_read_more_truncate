@@ -1,0 +1,146 @@
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<title>jQuery Lava Read More Truncate</title>
+		<!--[if lt IE 9]>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+		<![endif]-->
+		
+		<style>
+			#lava_read_more_truncate {
+				max-width: 400px;
+			}
+			
+			.truncate_item .truncate_toggle_link {
+				display: inline-block;
+			}
+			.truncate_item.closed .truncate_toggle_link.close {
+				display: none;
+			}
+			.truncate_item.opened .truncate_toggle_link.open {
+				display: none;
+			}
+			
+			.truncate_this {
+				line-height: 22px; /* Required... Can be px, em, rem, %... If not set, default 120% will be used*/
+				
+			}
+			.truncate_this {
+				display: none;
+				/* .truncate_this can be ul, ol, p... elements with a margin top, which screews up the truncating*/
+			}
+			.truncate_this.truncate {
+				display: block;
+			}
+			
+			/*
+			ol, ul {
+				margin: 0;
+			}
+			*/
+		</style>
+		
+		<script src="jquery.min.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+		<div id="lava_read_more_truncate">
+			<div  class="truncate_this">
+				<span style="color: brown;">Once</span> upon a <span>midnight</span> dreary, while I pondered, weak and <a href="#">weary</a>, 
+				<br />
+				Over many a quaint and curious volume of <span style="color:red;">forgotten</span> lore— 
+				<br />
+				While I nodded, nearly napping, suddenly there came a tapping, 
+				<br />
+				As of some one gently rapping, rapping at my <span style="color:blue;">chamber</span> door. 
+				<br />
+				“’Tis some visitor,” I muttered, “tapping at my <span style="color:blue;">chamber</span> door— 
+				<br />
+				Only this and nothing more.” 
+			</div>
+		</div>
+		
+		<br/><br/>
+		
+		<div id="lava_read_more_truncate_2">
+			<div  class="truncate_this">
+				<span style="color: brown;">Once</span> upon a <span>midnight</span> dreary, while I pondered, weak and <a href="#">weary</a>, 
+				<br />
+				Over many a quaint and curious volume of <span style="color:red;">forgotten</span> lore— 
+				<br />
+				While I nodded, nearly napping, suddenly there came a tapping, 
+				<br />
+				As of some one gently rapping, rapping at my <span style="color:blue;">chamber</span> door. 
+				<br />
+				“’Tis some visitor,” I muttered, “tapping at my <span style="color:blue;">chamber</span> door— 
+				<br />
+				Only this and nothing more.” 
+			</div>
+		</div>
+		
+		<br/><br/>
+		
+		<div id="ol_test">
+			<ol class="truncate_this"><li> Nested
+			</li><li> Nested too
+			</li><li> Yet one more
+			</li><li> And another one
+			</li><li> This is not another one
+			</li></ol>
+		</div>
+		<br/><br/>
+		<div id="ul_test">
+			<ul class="truncate_this"><li> An unnumbered list begins with an asterisk.
+			</li><li> A list member
+			<ul><li> Nested list members without tabs.
+			<ul><li> You can now nest beyond four deep...
+			<ul><li> ...although it becomes hard...
+			<ul><li> ...to read and edit.
+			<p></p>
+			</li></ul></li></ul></li></ul></li></ul></li></ul>
+		</div>
+		<br/><br/>
+		<div id="test">
+			<div class="truncate_this_2">
+				sdasdasd <span>hey</span>. 
+				<span style="color: brown;">Once</span> upon a <span>midnight</span> dreary, while I pondered, weak and <a href="#">weary</a>, 
+				<br />
+				Over many a quaint and curious volume of <span style="color:red;">forgotten</span> lore— 
+				<br />
+				While I nodded, nearly napping, suddenly there came a tapping, 
+				<br />
+				As of some one gently rapping, rapping at my <span style="color:blue;">chamber</span> door. 
+				<br />
+				“’Tis some visitor,” I muttered, “tapping at my <span style="color:blue;">chamber</span> door— 
+				<br />
+				Only this and nothing more.” 
+			</div>
+		</div>
+		
+		<div id="link_test">
+			<div class="truncate_this_2">
+				Northwest Airlines Flight 85 was a flight from Detroit Metropolitan Wayne County Airport to Narita International Airport that experienced a rudder hardover event on October 9, 2002 when the flight was in proximity to Anchorage, Alaska. The flight diverted to Ted Stevens Anchorage International Airport. No passengers or crew were injured, but the incident resulted in an airworthiness directive to prevent the possibility of a future accident.
+			</div>
+		</div>
+		
+		<script src="jquery.lava_read_more_truncate.js"></script>
+		<script>
+			$(document).ready(function() {
+				$('.truncate_this').lava_read_more_truncate({
+					line_count: 3,
+					animation_speed: 500,
+					ellipsis: '&hellip;',
+				});
+				
+				$('.truncate_this_2').lava_read_more_truncate({
+					line_count: 2,
+					animation_speed: 50,
+					ellipsis: '-ELLIPSIS-',
+					line_height: '500%',
+					responsive_speed: 500
+				});
+			});
+		</script>
+	</body>
+</html>
